@@ -1,7 +1,7 @@
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelector("#nomUsuario")
 const url = "https://jsonplaceholder.typicode.com/users";
-let datosUser;
+let datosUser = [];
 
 function getFromAPI(url, datos) {
 
