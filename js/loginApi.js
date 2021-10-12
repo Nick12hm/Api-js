@@ -18,7 +18,7 @@ async function validar() {
         const userData = users.filter(username => username.username === nom_usuario);
         if (userData.length > 0) {
             if (userData[0].email === correo) {
-                window.location.href = `inicio.html?id=${userData[0].id}`;
+                window.location.href = `inicio.html?URL=${url}/${userData[0].id}`;
             } else {
                 console.log("el correo no existe");
             }
