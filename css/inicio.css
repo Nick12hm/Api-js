@@ -1,38 +1,60 @@
 body {
     margin: 0;
+    min-width: 100vh;
 }
 
 .header {
-    width: 200px;
-    min-height: 100vh;
-    background-color: teal;
+    background: teal;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .usuario {
-    height: 100px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    margin-right: 7rem;
+    font-family: cursive;
+    font-size: 24px;
 }
 
 .usuario img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-left: 5px;
+    margin-right: 12px;
 }
-
-.usuario span {
-    margin-left: 12px;
-}
-
-.nav {}
 
 .nav ul {
-    margin-top: 8em;
+    list-style-type: none;
+    display: inline-flex;
 }
 
 .nav ul a {
+    color: white;
+    font-size: 24px;
+    font-family: cursive;
     text-decoration: none;
-    display: block;
-    padding: 15px;
+    margin-right: 20px;
+}
+
+.section {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.album {
+    margin-right: 2em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.album img {
+    width: 250px;
+    height: 250px;
 }
