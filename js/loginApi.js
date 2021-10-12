@@ -1,44 +1,30 @@
 const formulario = document.getElementById("formulario");
 const inputs = document.querySelector("#nomUsuario")
 const url = "https://jsonplaceholder.typicode.com/users";
-let datosUser = [];
-
-function getFromAPI(url, datos) {
-
-    fetch(url)
-        .then(res => res.json())
-        .then(data => datos = data)
-        .then(() => { return (datos) })
+let users = [];
+async function getFromAPI(url) {
+    let res = await fetch(url);
+    let data = await res.json()
+    return data;
 }
 
-// getFromAPI('https://jsonplaceholder.typicode.com/users', getData);
+async function validar() {
+    let nom_usuario = document.getElementById("nomUsuario").value;
+    let correo = document.getElementById("correo").value;
+    if (nom_usuario === "" && correo === "") {
+        alert("Los campos estan vacios")
+    } else {
+        users = await getFromAPI(url)
+        const userData = users.filter(username => username.username === nom_usuario);
+        if (userData.length > 0) {
+            if (userData[0].email === correo) {
+                window.location.href = `inicio.html?id=${userData[0].id}`;
+            } else {
+                console.log("el correo no existe");
+            }
+        } else {
+            console.log("no hay información")
+        }
 
-// function getData(arrOfObjs) {
-//     // var results = "";
-//     arrOfObjs.forEach((x) => {
-//             // results += "<p> Id: " + x.id + "<ul>"
-//             // Object.keys(x).forEach((p) => {
-//             //     // results += "<li>" + (p + ": " + x[p]) + "</li>";
-//             //     console.log(x + " " + p)
-//             // });
-//             // results += "</ul> </p> <hr>"
-//             console.log(x)
-//         })
-//         // results += "";
-//         // document.getElementById("myDiv").innerHTML = results;
-// }
-
-function validar() {
-    getFromAPI(url, datosUser);
-    console.log(datosUser);
-    // let nom_usuario = document.getElementById("nomUsuario").value;
-    // let correo = document.getElementById("correo").value;
-    //     if(nom_usuario === "" && correo === ""){
-    //         alert("Los campos estan vacios")
-    //     }else{
-    //         const emailValido = array.filter(emai => emai.email === correo);
-
-    //     }
-
-
+    }
 }
